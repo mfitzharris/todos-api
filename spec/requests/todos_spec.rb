@@ -7,7 +7,7 @@ RSpec.describe 'Todos API', type: :request do
 
 
   describe 'Get /todos' do
-    before { get '/todos' }
+    before { get "/todos" }
 
     it 'returns todos' do
       expect(json).not_to be_empty
@@ -21,7 +21,7 @@ RSpec.describe 'Todos API', type: :request do
 
 
   describe 'GET /todos/:id' do
-    before { get '/todos/#{todo_id}' }
+    before { get "/todos/#{todo_id}" }
 
     context 'when record exists' do
       it 'returns the todo' do
@@ -81,7 +81,7 @@ RSpec.describe 'Todos API', type: :request do
     let(:valid_attributes) {{title: 'Shopping'}}
 
     context 'when the record exists' do
-      before { put '/todos/#{todo_id}', params: valid_attributes}
+      before { put "/todos/#{todo_id}", params: valid_attributes}
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -94,7 +94,7 @@ RSpec.describe 'Todos API', type: :request do
   end
 
   describe 'DELETE /todos/:id' do
-    before { delete '/todos/#{todo_id}' }
+    before { delete "/todos/#{todo_id}" }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
