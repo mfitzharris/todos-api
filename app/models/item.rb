@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  validates :name, :done, presence: true
+  validates :name, presence: true
 
   belongs_to :todo
 end
